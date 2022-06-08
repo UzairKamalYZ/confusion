@@ -29,7 +29,7 @@ export const Main = () => {
             <Header/>
             <Switch>
                 <Route path="/home" component={HomePage}/>
-                <Route exact path="/menu" component={() => <Menu {...dishes}/>}/>
+                <Route exact path="/menu" component={() => <Menu dishes={dishes}/>}/>
                 <Route exact path={"/contactus"} component={Contact}/>
                 <Redirect to={"/home"}/>
             </Switch>
