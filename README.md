@@ -68,3 +68,47 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+The Flux Architecture (way of organising react application)
+* Unidirectional Data Flow 
+Action -> Dispatcher -> Store -> View
+ Flux could have multiple store , and modification controlled by store. 
+Modification done via actions, store subscribed by views. On update store will emit the change and contoller will referesh the
+ state again and it will cause rerendering part of the page. 
+Stores cannot be modified directly but via Actions only.<BR>
+-- `New Actions propagated through the system in response to user interactions`
+
+
+Redux is kind of Flux approach:
+(A general approach can be applied in Angular, React and etc.)
+* Store the state and consistent way to access the state. Be able to modify and modification 
+be reflected in application. 
+1) Predictable state container for JS apps. 
+2) Inspired by Flux, Elm, Immutable
+3) Makes state mutation predictable. 
+Prinicple of Redux
+* Single source of truth
+  - Single state object tree within a single store
+    - Single store and single state tree enbale powerful techniques
+      - Logging
+      - Api handling
+      - undo/redo
+      - State persistance
+      - time travel debugging
+* State is read-ony
+* Changes are made with pure functions
+   - Take previous state and action and return next state
+   - No mutation of the previous state
+
+Redux Data Flow
+![img.png](img.png)
+
+Redux Concepts: 
+* State : store in plain JS Object
+* Action : Plain JS Object with type field that specifies how to change something in state. 
+* Reducer:  Pure funcitons which take current state and generate new state (Update data Immutably)
+* 
+
+`npm install redux`
+`npm install react-redux`

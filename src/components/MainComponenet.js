@@ -5,22 +5,17 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import Header from "./HeaderComponenet";
 import Footer from "./FooterComponent";
 import Contact from "./ContactComponent";
-import {DISHES} from "../state/dishes";
-import {COMMENTS} from "../state/comments";
-import {LEADERS} from "../state/leader";
-import {PROMOTIONS} from "../state/promotions";
+import {useSelector} from "react-redux";
 
-export const Main = () => {
-    const dishes = DISHES;
-    const comments = COMMENTS;
-    const promotions = PROMOTIONS;
-    const leaders = LEADERS;
+
+export function Main(props) {
+    let state = useSelector((state => state));
     const HomePage = () => {
         return (
             <div>
-                <Home dish= {dishes.filter((d) => d.featured)[0]}
-                      leader={promotions.filter((d) => d.featured)[0]}
-                      promotion={leaders.filter((d) => d.featured)[0]}/>
+                <Home dish={state.dishes.filter((d) => d.featured)[0]}
+                      leader={state.promotions.filter((d) => d.featured)[0]}
+                      promotion={state.leaders.filter((d) => d.featured)[0]}/>
             </div>
         );
     };
@@ -29,7 +24,7 @@ export const Main = () => {
             <Header/>
             <Switch>
                 <Route path="/home" component={HomePage}/>
-                <Route exact path="/menu" component={() => <Menu dishes={dishes}/>}/>
+                <Route exact path="/menu" component={() => <Menu dishes={state.dishes}/>}/>
                 <Route exact path={"/contactus"} component={Contact}/>
                 <Redirect to={"/home"}/>
             </Switch>
