@@ -11,6 +11,22 @@ function RenderCard({item}) {
     return(
         <Card>
             <CardImg src={baseUrl+item.image} alt={item.image} />
+             {/*Image for dish would be available .. rest of them are gone.. to make it .. they should also be brought from json-server..*/}
+             {/*for the moment i am duplicating the code to be enable to see those images..*/}
+            <CardBody>
+                <CardTitle>{item.name}</CardTitle>
+                {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }
+                <CardText>{item.description}</CardText>
+            </CardBody>
+        </Card>
+    );
+
+}
+function RenderCardWithLocalImages({item}) {
+
+    return(
+        <Card>
+            <CardImg src={item.image} alt={item.image} />
             <CardBody>
                 <CardTitle>{item.name}</CardTitle>
                 {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }
@@ -46,10 +62,10 @@ function Home(props) {
                     <RenderCard item={filteredDishes}/>
                 </div>
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.promotions} />
+                    <RenderCardWithLocalImages item={props.promotions} />
                 </div>
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.leader} />
+                    <RenderCardWithLocalImages item={props.leader} />
                 </div>
             </div>
         </div>
