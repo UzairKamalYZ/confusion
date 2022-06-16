@@ -4,12 +4,13 @@ import { Card, CardImg, CardText, CardBody,
 import {Loading} from "./LoadingComponent";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchDishes} from "../redux/ActionCreators";
+import {baseUrl} from "../state/baseUrl";
 
 function RenderCard({item}) {
 
     return(
         <Card>
-            <CardImg src={item.image} alt={item.name} />
+            <CardImg src={baseUrl+item.image} alt={item.image} />
             <CardBody>
                 <CardTitle>{item.name}</CardTitle>
                 {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }

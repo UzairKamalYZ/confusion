@@ -112,3 +112,12 @@ Redux Concepts:
 
 `npm install redux`
 `npm install react-redux`
+
+
+Json-server setup: 
+* create folder with name json-server
+* create public folder inside and put your images
+* put db.json in json-server folder
+* `cd json-server`
+* ` npm install json-server`
+* `json-server.cmd --watch db.json -p 3001 -d 2000`
